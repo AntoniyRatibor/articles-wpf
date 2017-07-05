@@ -22,6 +22,7 @@ namespace Articles
         public string Address = @"http://old.mon.gov.ua/ua/about-ministry/normative/page";
         Dictionary<string, int> DictDB;
         Dictionary<string, int> DictCurrent;
+        XmlDB newDB;
 
         public MainWindow()
         {
@@ -56,11 +57,12 @@ namespace Articles
         {
             int PageFrom = Convert.ToInt32(pageFrom.Text);
             int PageTo = Convert.ToInt32(pageTo.Text);
-            XmlDB DB = new XmlDB(dbAddress.Text);
-
+            
             if (DictDB == null)
             {
+                XmlDB DB = new XmlDB(dbAddress.Text);
                 DictDB = DB.DBDictFromXml();
+                DB = null;
             }
 
             PageParser parser = new PageParser();
@@ -76,6 +78,15 @@ namespace Articles
                 }
             }
             DictCurrent = null;
+        }
+
+        private void addToDB_Click(object sender, RoutedEventArgs e)
+        {
+            if (newDB == null)
+            {
+                newDB = new XmlDB(dbAddress.Text);
+            }
+            newDB.AddArticle(articleForAdd.Text);
         }
     }
 }

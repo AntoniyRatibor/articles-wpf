@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Articles"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="669">
+        Title="MainWindow" Height="386" Width="669">
     <Grid>
         <TextBox x:Name="textBox" Margin="10,38,341,10" TextWrapping="Wrap"/>
         <Button x:Name="createDB" Content="Создать БД" HorizontalAlignment="Right" Margin="0,88,10,0" VerticalAlignment="Top" Width="71" Click="createDB_Click"/>
@@ -17,5 +17,9 @@
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Right" Margin="0,17,208,0" TextWrapping="Wrap" Text="Путь к базе данных" VerticalAlignment="Top"/>
         <Button x:Name="loadArticles" Content="Загрузить" Margin="0,120,246,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="68" Click="loadArticles_Click"/>
         <Button x:Name="openBtn" Content="Открыть" Margin="0,39,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="71" Click="openBtn_Click"/>
+        <TextBox x:Name="articleForAdd" Margin="0,197,86,91" TextWrapping="Wrap" HorizontalAlignment="Right" Width="228"/>
+        <Button x:Name="addToDB" Content="Добавить в БД" Margin="0,0,221,61" HorizontalAlignment="Right" Width="93" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25" VerticalAlignment="Bottom" Click="addToDB_Click"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="10,17,0,0" TextWrapping="Wrap" Text="Новые публикации:" VerticalAlignment="Top" Width="115"/>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="347,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Добавить публикацию в "/><Run Text="Б"/><Run Text="Д"/><Run Text=":"/></TextBlock>
     </Grid>
 </Window>

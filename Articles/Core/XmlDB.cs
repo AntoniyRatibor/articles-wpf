@@ -36,11 +36,8 @@ namespace Articles.Core
             foreach (string key in keys)
             {
                 XmlNode article = xmlDB.CreateElement("article");
-                XmlAttribute page = xmlDB.CreateAttribute("page");
                 article.InnerText = key;
-                page.Value = Dict[key].ToString();
                 xmlDB.DocumentElement.AppendChild(article);
-                article.Attributes.Append(page);
             }
 
             XmlWriterSettings settings = new XmlWriterSettings
@@ -68,8 +65,20 @@ namespace Articles.Core
             foreach (XmlNode article in articleNodes)
             {
                 Dict[article.InnerText] = Convert.ToInt32(article.Attributes["page"].Value);
+                xmlDB.Save(DBpath);
             }
             return Dict;
+        }
+
+        public void AddArticle(string newArticle)
+        {
+            XmlDocument xmlDB = new XmlDocument();
+            xmlDB.Load(DBpath);
+
+            XmlNode article = xmlDB.CreateElement("article");
+            article.InnerText = newArticle;
+            xmlDB.DocumentElement.PrependChild(article);
+            xmlDB.Save(DBpath);
         }
     }
 }
