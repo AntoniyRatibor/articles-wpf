@@ -14,10 +14,9 @@ namespace Articles.Core
         public XmlDB(string DBpath)
         {
             this.DBpath = DBpath;
-            DBCreator();
         }
 
-        private void DBCreator()
+        public void DBCreator()
         {
             XmlTextWriter xmlWriter = new XmlTextWriter(DBpath, Encoding.UTF8);
             xmlWriter.WriteStartElement("main");
@@ -55,7 +54,21 @@ namespace Articles.Core
             {
                 xmlDB.Save(writer);
             }
+            return Dict;
+        }
 
+        public Dictionary<string, int> DBDictFromXml()
+        {
+            Dictionary<string, int> Dict = new Dictionary<string, int>();
+
+            XmlDocument xmlDB = new XmlDocument();
+            xmlDB.Load(DBpath);
+            XmlNodeList articleNodes = xmlDB.GetElementsByTagName("article");
+
+            foreach (XmlNode article in articleNodes)
+            {
+                Dict[article.InnerText] = Convert.ToInt32(article.Attributes["page"].Value);
+            }
             return Dict;
         }
     }

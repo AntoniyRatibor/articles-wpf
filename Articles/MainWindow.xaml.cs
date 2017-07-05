@@ -21,6 +21,7 @@ namespace Articles
     {
         public string Address = @"http://old.mon.gov.ua/ua/about-ministry/normative/page";
         Dictionary<string, int> DictDB;
+        Dictionary<string, int> DictCurrent;
 
         public MainWindow()
         {
@@ -30,6 +31,7 @@ namespace Articles
         private void createDB_Click(object sender, RoutedEventArgs e)
         {
             XmlDB DB = new XmlDB(dbAddress.Text);
+            DB.DBCreator();
 
             int PageFrom = Convert.ToInt32(pageFrom.Text);
             int PageTo = Convert.ToInt32(pageTo.Text);
@@ -48,6 +50,32 @@ namespace Articles
             {
                 dbAddress.Text = browse.FileName;
             }
+        }
+
+        private void loadArticles_Click(object sender, RoutedEventArgs e)
+        {
+            int PageFrom = Convert.ToInt32(pageFrom.Text);
+            int PageTo = Convert.ToInt32(pageTo.Text);
+            XmlDB DB = new XmlDB(dbAddress.Text);
+
+            if (DictDB == null)
+            {
+                DictDB = DB.DBDictFromXml();
+            }
+
+            PageParser parser = new PageParser();
+            DictCurrent = parser.ParsePage(Address, PageFrom, PageTo);
+
+            ICollection<string> curKeys = DictCurrent.Keys;
+            foreach (string curKey in curKeys)
+            {
+                if (!DictDB.ContainsKey(curKey))
+                {
+                    textBox.Text += "Страница " + DictCurrent[curKey] + "\n";
+                    textBox.Text += curKey + "\n";
+                }
+            }
+            DictCurrent = null;
         }
     }
 }
