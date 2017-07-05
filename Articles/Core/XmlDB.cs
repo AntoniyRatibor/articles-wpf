@@ -26,14 +26,23 @@ namespace Articles.Core
             xmlWriter.Close();
         }
 
-        public void FillUp(string address, int pageFrom, int pageTo)
+        public Dictionary<string, int> FillUp(string address, int pageFrom, int pageTo)
         {
             Dictionary<string, int> Dict = ParsePage(address, pageFrom, pageTo);
 
             XmlDocument xmlDB = new XmlDocument();
             xmlDB.Load(DBpath);
 
-
+            ICollection<string> keys = Dict.Keys;
+            foreach (string key in keys)
+            {
+                XmlNode article = xmlDB.CreateElement("article");
+                XmlAttribute page = xmlDB.CreateAttribute("page");
+                article.InnerText = key;
+                page.Value = Dict[key].ToString();
+                xmlDB.DocumentElement.AppendChild(article);
+                article.Attributes.Append(page);
+            }
 
             XmlWriterSettings settings = new XmlWriterSettings
             {
@@ -46,6 +55,8 @@ namespace Articles.Core
             {
                 xmlDB.Save(writer);
             }
+
+            return Dict;
         }
     }
 }

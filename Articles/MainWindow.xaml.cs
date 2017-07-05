@@ -1,4 +1,5 @@
 ﻿using Articles.Core;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +20,7 @@ namespace Articles
     public partial class MainWindow : Window
     {
         public string Address = @"http://old.mon.gov.ua/ua/about-ministry/normative/page";
-        public int PageFrom { get; set; }
-        public int PageTo { get; set; }
+        Dictionary<string, int> DictDB;
 
         public MainWindow()
         {
@@ -31,10 +31,23 @@ namespace Articles
         {
             XmlDB DB = new XmlDB(dbAddress.Text);
 
-            PageFrom = Convert.ToInt32(pageFrom.Text);
-            PageTo = Convert.ToInt32(pageTo.Text);
+            int PageFrom = Convert.ToInt32(pageFrom.Text);
+            int PageTo = Convert.ToInt32(pageTo.Text);
 
-            DB.FillUp(Address, PageFrom, PageTo);
+            DictDB = DB.FillUp(Address, PageFrom, PageTo);
+        }
+
+        private void openBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog browse = new OpenFileDialog();
+            browse.DefaultExt = ".xml";
+            browse.Filter = "All Files (*.xml, *.xls, *.xlsx)|*.xml; *.xls; *.xlsx";
+            Nullable<bool> result = browse.ShowDialog();
+
+            if (result == true)
+            {
+                dbAddress.Text = browse.FileName;
+            }
         }
     }
 }

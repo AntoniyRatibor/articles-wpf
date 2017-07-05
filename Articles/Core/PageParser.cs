@@ -25,12 +25,13 @@ namespace Articles.Core
                 {
                     if (node.Name != "#text")
                     {
-                        HtmlNode newNode = node.SelectSingleNode(node.XPath + "/div/h6");
-                        Dict.Add(newNode.InnerText, i);
+                        HtmlNode newNode = node.SelectSingleNode(node.XPath + "/div/h6/a");
+                        int curPage = i + 1;
+                        Dict.Add(newNode.InnerText, curPage);
                     }
                 }
             }
-
+            web = null;
             return Dict;
         }
     }

@@ -8,13 +8,14 @@
         Title="MainWindow" Height="350" Width="669">
     <Grid>
         <TextBox x:Name="textBox" Margin="10,38,341,10" TextWrapping="Wrap" Text="TextBox"/>
-        <Button x:Name="createDB" Content="Создать БД" HorizontalAlignment="Right" Margin="0,88,21,0" VerticalAlignment="Top" Width="83" Click="createDB_Click"/>
+        <Button x:Name="createDB" Content="Создать БД" HorizontalAlignment="Right" Margin="0,88,10,0" VerticalAlignment="Top" Width="71" Click="createDB_Click"/>
         <TextBox x:Name="pageFrom" HorizontalAlignment="Right" Height="23" Margin="0,87,256,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58"/>
         <TextBox x:Name="pageTo" HorizontalAlignment="Right" Height="23" Margin="0,87,171,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="0,66,81,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Height="21"><Run Text="Страницы сайта от "/><Run Text="-"/><Run Text=" "/><Run Text="до"/><Run Text=" ("/><Run Text="включительно"/><Run Text=")"/></TextBlock>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Right" Margin="0,87,229,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="27" TextAlignment="Center" Height="23"/>
-        <TextBox x:Name="dbAddress" HorizontalAlignment="Right" Height="23" Margin="0,38,21,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293"/>
+        <TextBox x:Name="dbAddress" HorizontalAlignment="Right" Height="23" Margin="0,38,86,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Right" Margin="0,17,208,0" TextWrapping="Wrap" Text="Путь к базе данных" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Загрузить" HorizontalAlignment="Left" Margin="347,120,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button" Content="Загрузить" Margin="0,120,246,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="68"/>
+        <Button x:Name="openBtn" Content="Открыть" Margin="0,39,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="71" Click="openBtn_Click"/>
     </Grid>
 </Window>
