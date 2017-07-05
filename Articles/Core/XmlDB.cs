@@ -64,7 +64,7 @@ namespace Articles.Core
 
             foreach (XmlNode article in articleNodes)
             {
-                Dict[article.InnerText] = Convert.ToInt32(article.Attributes["page"].Value);
+                Dict[article.InnerText] = 0;
                 xmlDB.Save(DBpath);
             }
             return Dict;

@@ -13,13 +13,13 @@
         <TextBox x:Name="pageTo" HorizontalAlignment="Right" Height="23" Margin="0,87,171,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="0,66,81,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" Height="21"><Run Text="Страницы сайта от "/><Run Text="-"/><Run Text=" "/><Run Text="до"/><Run Text=" ("/><Run Text="включительно"/><Run Text=")"/></TextBlock>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Right" Margin="0,87,229,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Width="27" TextAlignment="Center" Height="23"/>
-        <TextBox x:Name="dbAddress" HorizontalAlignment="Right" Height="23" Margin="0,38,86,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
+        <TextBox x:Name="dbAddress" Height="23" Margin="0,38,86,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Right" Width="228"/>
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Right" Margin="0,17,208,0" TextWrapping="Wrap" Text="Путь к базе данных" VerticalAlignment="Top"/>
         <Button x:Name="loadArticles" Content="Загрузить" Margin="0,120,246,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="68" Click="loadArticles_Click"/>
         <Button x:Name="openBtn" Content="Открыть" Margin="0,39,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="71" Click="openBtn_Click"/>
         <TextBox x:Name="articleForAdd" Margin="0,197,86,91" TextWrapping="Wrap" HorizontalAlignment="Right" Width="228"/>
         <Button x:Name="addToDB" Content="Добавить в БД" Margin="0,0,221,61" HorizontalAlignment="Right" Width="93" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="25" VerticalAlignment="Bottom" Click="addToDB_Click"/>
         <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="10,17,0,0" TextWrapping="Wrap" Text="Новые публикации:" VerticalAlignment="Top" Width="115"/>
-        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="347,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Добавить публикацию в "/><Run Text="Б"/><Run Text="Д"/><Run Text=":"/></TextBlock>
+        <TextBlock x:Name="textBlock4" HorizontalAlignment="Right" Margin="0,176,159,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Добавить публикацию в "/><Run Text="Б"/><Run Text="Д"/><Run Text=":"/></TextBlock>
     </Grid>
 </Window>
