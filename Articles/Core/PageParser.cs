@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Articles.Core
@@ -27,7 +28,11 @@ namespace Articles.Core
                     {
                         HtmlNode newNode = node.SelectSingleNode(node.XPath + "/div/h6/a");
                         int curPage = i + 1;
-                        Dict.Add(newNode.InnerText, curPage);
+                        string article = Regex.Replace(newNode.InnerText, @"\s+", " ");
+                        if (!Dict.ContainsKey(article))
+                        {
+                            Dict.Add(article, curPage);
+                        }
                     }
                 }
             }
